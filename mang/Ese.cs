@@ -10,7 +10,6 @@ namespace mang
     {
         private string nimetus;
         private int punkArv;
-        public Ese() { }
         public Ese(string nimetus, int punkArv)
         {
             this.nimetus = nimetus;

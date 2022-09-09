@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace mang
 {
-    abstract class mang
+    internal class mang
     {
     }
 }
