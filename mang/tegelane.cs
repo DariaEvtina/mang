@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace mang
 {
-    internal class tegelane : uksus
+    internal class tegelane : uksus 
     {
-
         private string nimi;
         private List<Ese> esemete_nimikiri=new List<Ese> { };
         public tegelane(string nimi)
@@ -26,12 +26,22 @@ namespace mang
                 
             return $"Tegelane: {nimi} Esemete: {esemete_nimikiri.Count} Punktide: {sum}";
         }
+
         public void väljastaEsemed()
         {
             foreach (Ese ese_ in esemete_nimikiri)
             {
                 Console.WriteLine( $"Ese: {ese_.info()} Punktide: {ese_.punktideArv()}\n");
             }
+        }
+        public int eseSum()
+        {
+            int sum = 0;
+            foreach (Ese ese_ in esemete_nimikiri)
+            {
+                sum += 1;
+            }
+            return sum;
         }
 
         public int punktideArv()

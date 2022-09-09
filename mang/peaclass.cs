@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace mang
 {
-    internal class mang
+    internal class peaclass
     {
+        public static void loeEsemed(string filenimi)
+        {
+
+        }
     }
 }
