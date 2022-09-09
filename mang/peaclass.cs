@@ -10,9 +10,9 @@ namespace mang
 {
     internal class peaclass
     {
-        public static void loeEsemed(string filenimi)
+        public List<Ese> esemed = new List<Ese> { };
+        public void loeEsemed(string filenimi)
         {
-            List<Ese> esemed= new List<Ese> { };
             string line;
             using (StreamReader sr = new StreamReader(new FileStream(filenimi, FileMode.OpenOrCreate)))
             {
@@ -28,7 +28,8 @@ namespace mang
         }
         public peaclass()
         {
-            mangu mangi= new mangu();
+            loeEsemed(@"..\..\..\esemed.txt");
+            mangu mang_ = new mangu(5, esemed);
         }
     }
 }
