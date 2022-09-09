@@ -10,7 +10,7 @@ namespace mang
     internal class tegelane : uksus 
     {
         private string nimi;
-        private List<Ese> esemete_nimikiri=new List<Ese> { };
+        public List<Ese> esemete_nimikiri=new List<Ese> { };
         public tegelane(string nimi)
         {
             this.nimi = nimi;

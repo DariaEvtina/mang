@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -30,6 +31,18 @@ namespace mang
         {
             loeEsemed(@"..\..\..\esemed.txt");
             mangu mang_ = new mangu(5, esemed);
+            var rnd = new Random();
+            foreach (var item in mang_.tegelansed)
+            {
+                Console.WriteLine(item.info());
+                var randomized = item.esemete_nimikiri.OrderBy(item => rnd.Next());
+                foreach (var value in randomized)
+                {
+                    Console.WriteLine(value);
+                }
+                Console.ReadLine();
+            }
+            
         }
     }
 }

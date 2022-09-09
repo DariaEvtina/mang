@@ -36,9 +36,12 @@ namespace mang
             {
                 foreach (var item in tegelansed)
                 {
-                    if (tegelansed[i].eseSum()> tegelansed[i+1].eseSum())
+                    if (i!= tegelansed.Length)
                     {
-                        Console.WriteLine(item.info() + "  " + CompareTo(item.eseSum()));
+                        if (tegelansed[i].eseSum() > tegelansed[i + 1].eseSum())
+                        {
+                            Console.WriteLine(item.info() + "  " + CompareTo(item.eseSum()));
+                        }
                     }
                 }
             }
@@ -50,9 +53,12 @@ namespace mang
             {
                 foreach (var item in tegelansed)
                 {
-                    if (tegelansed[i].punktideArv() > tegelansed[i + 1].punktideArv())
+                    if (i != tegelansed.Length)
                     {
-                        Console.WriteLine(item.info() + "  " + CompareTo(item.punktideArv()));
+                        if (tegelansed[i].punktideArv() > tegelansed[i + 1].punktideArv())
+                        {
+                            Console.WriteLine(item.info() + "  " + CompareTo(item.punktideArv()));
+                        }
                     }
                 }
             }
