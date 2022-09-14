@@ -9,6 +9,7 @@ namespace mang
 {
     internal class mangu : IComparable<int>
     {
+        List <string> nimi=new List<string>() { "Marge", "Homer", "Olivia", "Liam", "Marge", "Charlotte", "Amelia", "Elijah", "Noah", "Henry" };
         public List<tegelane> tegelansed;
         public mangu( int arvu, List<Ese> esemed)
         {
@@ -16,11 +17,11 @@ namespace mang
             Random rnd=new Random();
             for (int i = 0; i <= arvu; i++)
             {
-                tegelane tegelane_ = new tegelane($"{i}-tegelane");
+                tegelane tegelane_ = new tegelane($"{nimi[rnd.Next(0, 9)]}");
                 
                 for (int e = 0; e < rnd.Next(0,5); e++)
                 {
-                    tegelane_.lisaEse(esemed[rnd.Next(1, 9)].info(), esemed[rnd.Next(2, 9)].punktideArv());
+                    tegelane_.lisaEse(esemed[rnd.Next(1, 9)].info(), esemed[rnd.Next(1, 9)].punktideArv());
                 }
                 tegelansed.Add(tegelane_);
                 //Console.WriteLine(tegelansed[i].info()) ;

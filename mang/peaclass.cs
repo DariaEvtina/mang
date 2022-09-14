@@ -12,19 +12,6 @@ namespace mang
 
     internal class peaclass
     {
-        public int Compare(int o1, int o2)
-        {
-            if (o1 > o2)
-            {
-                return 1;
-            }
-            else if (o1 < o2)
-            {
-                return -1;
-            }
-
-            return 0;
-        }
         public List<Ese> esemed = new List<Ese> { };
         public void loeEsemed()
         {
@@ -44,23 +31,16 @@ namespace mang
         public peaclass()
         {
             loeEsemed();
-            mangu mang_ = new mangu(5, esemed);
-            var rnd = new Random();
-            for (int i = 0; i < mang_.tegelansed.Count; i++)
+            mangu mang_ = new mangu(10, esemed);
+            foreach (var tegelane in mang_.tegelansed)
             {
-                foreach (tegelane item in mang_.tegelansed)
+                Console.WriteLine(tegelane.info());
+                foreach (var ese in tegelane.esemete_nimikiri)
                 {
-                    if (i+1!= mang_.tegelansed.Count)
-                    {
-                        if (mang_.tegelansed[i].esemete_nimikiri.Count> mang_.tegelansed[i+1].esemete_nimikiri.Count)
-                        {
-                            Console.WriteLine(item.info());
-                        }
-                    }
-
+                    Console.WriteLine("   "+ese.info()+" arv: "+ese.punktideArv());
                 }
-            
             }
+            
             
         }
     }
