@@ -35,10 +35,7 @@ namespace mang
             foreach (var tegelane in mang_.tegelansed)
             {
                 Console.WriteLine(tegelane.info());
-                foreach (var ese in tegelane.esemete_nimikiri)
-                {
-                    Console.WriteLine("   "+ese.info()+" arv: "+ese.punktideArv());
-                }
+                tegelane.väljastaEsemed();
             }
             
             

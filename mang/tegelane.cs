@@ -24,14 +24,14 @@ namespace mang
         {
             int sum = punktideArv();
                 
-            return $"Tegelane: {nimi} Esemete: {esemete_nimikiri.Count} Punktide: {sum}";
+            return $"Tegelane: {nimi} Esemete: {eseKokkuvote()} Punktide: {sum}";
         }
 
         public void väljastaEsemed()
         {
             foreach (Ese ese_ in esemete_nimikiri)
             {
-                Console.WriteLine( $"Ese: {ese_.info()} Punktide: {ese_.punktideArv()}\n");
+                Console.WriteLine( $"   Ese: {ese_.info()} Punktide: {ese_.punktideArv()}");
             }
         }
         public int eseKokkuvote()
