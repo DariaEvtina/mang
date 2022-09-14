@@ -37,8 +37,13 @@ namespace mang
                 Console.WriteLine(tegelane.info());
                 tegelane.väljastaEsemed();
             }
-            
-            
+            Console.WriteLine("===========================================ESEMED========================================");
+            mang_.suurimaEsemeteArvuga();
+            Console.WriteLine("===========================================PUNKTIDE========================================");
+            mang_.suurimaPunktideArvuga();
+
+
+
         }
     }
 }

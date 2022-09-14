@@ -26,7 +26,10 @@ namespace mang
                 
             return $"Tegelane: {nimi} Esemete: {eseKokkuvote()} Punktide: {sum}";
         }
-
+        public string ainultnimi()
+        {
+            return $"Tegelane: {nimi}";
+        }
         public void väljastaEsemed()
         {
             foreach (Ese ese_ in esemete_nimikiri)

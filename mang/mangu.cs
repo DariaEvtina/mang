@@ -19,9 +19,9 @@ namespace mang
             {
                 tegelane tegelane_ = new tegelane($"{nimi[rnd.Next(0, 9)]}");
                 
-                for (int e = 0; e < rnd.Next(0,5); e++)
+                for (int e = 0; e < rnd.Next(1,5); e++)
                 {
-                    tegelane_.lisaEse(esemed[rnd.Next(1, 9)].info(), esemed[rnd.Next(1, 9)].punktideArv());
+                    tegelane_.lisaEse(esemed[rnd.Next(0, 9)].info(), esemed[rnd.Next(1, 9)].punktideArv());
                 }
                 tegelansed.Add(tegelane_);
                 //Console.WriteLine(tegelansed[i].info()) ;
@@ -40,11 +40,11 @@ namespace mang
             {
                 foreach (var item in tegelansed)
                 {
-                    if (i!= tegelansed.Count)
+                    if (i+1 != tegelansed.Count)
                     {
                         if (tegelansed[i].eseKokkuvote() > tegelansed[i + 1].eseKokkuvote())
                         {
-                            Console.WriteLine(item.info() + "  " + CompareTo(item.eseKokkuvote()));
+                            Console.WriteLine(item.ainultnimi() + " " + item.eseKokkuvote());
                         }
                     }
                 }
@@ -57,11 +57,11 @@ namespace mang
             {
                 foreach (var item in tegelansed)
                 {
-                    if (i != tegelansed.Count)
+                    if (i+1 != tegelansed.Count)
                     {
                         if (tegelansed[i].punktideArv() > tegelansed[i + 1].punktideArv())
                         {
-                            Console.WriteLine(item.info() + "  " + CompareTo(item.punktideArv()));
+                            Console.WriteLine(item.ainultnimi()+" "+item.punktideArv());
                         }
                     }
                 }
