@@ -12,11 +12,11 @@ namespace mang
 
     internal class peaclass
     {
-        public List<Ese> esemed = new List<Ese> { };
-        public void loeEsemed()
+        public List<Ese> esemed = new List<Ese>();
+        public void loeEsemed(string filenimi)
         {
             string line;
-            using (StreamReader sr = new StreamReader(@"..\..\..\esemed.txt"))
+            using (StreamReader sr = new StreamReader(filenimi))
             {
                 while (sr.ReadLine() != null)
                 {
@@ -30,8 +30,9 @@ namespace mang
         }
         public peaclass()
         {
-            loeEsemed();
-            mangu mang_ = new mangu(10, esemed);
+            string filenimi = @"..\..\..\esemed.txt";
+            loeEsemed(filenimi);
+            mangu mang_ = new mangu(6, esemed);
             foreach (var tegelane in mang_.tegelansed)
             {
                 Console.WriteLine(tegelane.info());
@@ -41,6 +42,7 @@ namespace mang
             mang_.suurimaEsemeteArvuga();
             Console.WriteLine("===========================================PUNKTIDE========================================");
             mang_.suurimaPunktideArvuga();
+            //mang_.lisaNimid();
 
 
 

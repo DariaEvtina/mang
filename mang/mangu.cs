@@ -1,27 +1,63 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace mang
 {
-    internal class mangu : IComparable<int>
+    internal class mangu 
     {
-        List <string> nimi=new List<string>() { "Marge", "Homer", "Olivia", "Liam", "Marge", "Charlotte", "Amelia", "Elijah", "Noah", "Henry" };
-        public List<tegelane> tegelansed;
+
+        List <string> nimi=new List<string> { "Liam, Hort","Henry, Chatman","daria, evtia","Homer, Human","Liam, Hort","Charlotte, Bon","Elijah, Jonns","Henry, Chatman","Test, Test"};
+        /*public void loeNimid()
+        {
+            using (StreamReader sr = new StreamReader(@"..\..\..\nimid.txt"))
+            {
+                while (sr.ReadLine() != "!")
+                {
+
+                            nimi.Add(sr.ReadLine());
+                            Console.WriteLine(sr.ReadLine());
+
+                        
+                }
+
+                sr.Close();
+            }
+        }*/
+        public void lisaNimid()
+        {
+            Console.WriteLine("lisa eesnimi:");
+            string eesnimi=Console.ReadLine();
+            Console.WriteLine("lisa perenimi:");
+            string perenimi = Console.ReadLine();
+            using (StreamWriter sw = new StreamWriter(@"..\..\..\nimid.txt"))
+            {
+                foreach (var nimid in nimi)
+                {
+                    sw.WriteLine(nimid);
+                }
+                sw.WriteLine(eesnimi+", "+perenimi);
+                sw.WriteLine("!");
+                sw.Close();
+            }
+        }
+        public List<tegelane> tegelansed=new List<tegelane>();
         public mangu( int arvu, List<Ese> esemed)
         {
-            tegelansed = new List<tegelane> { };
+            //loeNimid();
             Random rnd=new Random();
             for (int i = 0; i <= arvu; i++)
             {
-                tegelane tegelane_ = new tegelane($"{nimi[rnd.Next(0, 9)]}");
+                tegelane tegelane_ = new tegelane($"{nimi[rnd.Next(0, nimi.Count)]}");
                 
                 for (int e = 0; e < rnd.Next(1,5); e++)
                 {
-                    tegelane_.lisaEse(esemed[rnd.Next(0, 9)].info(), esemed[rnd.Next(1, 9)].punktideArv());
+                    tegelane_.lisaEse(esemed[rnd.Next(0, esemed.Count)].info(), esemed[rnd.Next(1, esemed.Count)].punktideArv());
                 }
                 tegelansed.Add(tegelane_);
                 //Console.WriteLine(tegelansed[i].info()) ;
@@ -29,11 +65,6 @@ namespace mang
             
         }
 
-        public int CompareTo(int other)
-        {
-            if (other == 0) throw new ArgumentException("Vale parameetri väärtus");
-            return other;
-        }
         public void suurimaEsemeteArvuga()
         {
             for (int i = 0; i < tegelansed.Count; i++)
@@ -47,6 +78,10 @@ namespace mang
                             Console.WriteLine(item.ainultnimi() + " " + item.eseKokkuvote());
                         }
                     }
+                    else if (tegelansed.Count==1)
+                    {
+                        Console.WriteLine(item.ainultnimi() + " " + item.eseKokkuvote());
+                    }
                 }
             }
                 
@@ -57,12 +92,16 @@ namespace mang
             {
                 foreach (var item in tegelansed)
                 {
-                    if (i+1 != tegelansed.Count)
+                    if (i + 1 != tegelansed.Count)
                     {
                         if (tegelansed[i].punktideArv() > tegelansed[i + 1].punktideArv())
                         {
-                            Console.WriteLine(item.ainultnimi()+" "+item.punktideArv());
+                            Console.WriteLine(item.ainultnimi() + " " + item.punktideArv());
                         }
+                    }
+                    else if (tegelansed.Count == 1)
+                    {
+                        Console.WriteLine(item.ainultnimi() + " " + item.punktideArv());
                     }
                 }
             }
