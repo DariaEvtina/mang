@@ -34,7 +34,7 @@ namespace mang
                 Console.WriteLine( $"Ese: {ese_.info()} Punktide: {ese_.punktideArv()}\n");
             }
         }
-        public int eseSum()
+        public int eseKokkuvote()
         {
             int sum = 0;
             foreach (Ese ese_ in esemete_nimikiri)
